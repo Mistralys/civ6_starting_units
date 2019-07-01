@@ -5,7 +5,7 @@
     <Name>More Starting Units</Name>
     <Guid>2b419cb3-0833-475f-9a39-3689f2cd3de9</Guid>
     <ProjectGuid>e7e5be7b-1995-44c1-804e-c92ec3efc2af</ProjectGuid>
-    <ModVersion>1</ModVersion>
+    <ModVersion>2</ModVersion>
     <Teaser>Adds a customizable selection of ground units to the player's game start. The AI's starting units are not affected.</Teaser>
     <Description>Adds a customizable selection of ground units to the player's game start. The AI's starting units are not affected.</Description>
     <Authors>ThorfinnSkullsplitter</Authors>
@@ -20,6 +20,9 @@
     <AssemblyName>More Starting Units</AssemblyName>
     <RootNamespace>More Starting Units</RootNamespace>
     <InGameActionData><![CDATA[<InGameActions><AddGameplayScripts id="NewAction"><File>CreateUnits.lua</File></AddGameplayScripts></InGameActions>]]></InGameActionData>
+    <ModProperties>
+      <CustomProperties />
+    </ModProperties>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>

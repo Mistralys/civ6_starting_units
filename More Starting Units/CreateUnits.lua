@@ -1,12 +1,14 @@
 
--- Sets the units that should be added. Simply set
--- an amount above zero for that unit to be added.
+-- The variable unitsToAdd sets the units that should 
+-- be added. Simply set an amount above zero for that 
+-- unit to be added.
 --
 -- WARNING: The script tries to distribute the units
 -- over available tiles near the starting settler.
 -- If there is not enough free space, they will be 
 -- stacked. If you cannot move them all to free plots,
--- you will not be able to end the turn.
+-- you will not be able to end the turn. In this case,
+-- simply disband some.
 
 local unitsToAdd = 
 {
@@ -29,6 +31,14 @@ local unitsToAdd =
 -- > Gathering Storm: DLC/Expansion2/Expansion2_Units_Major
 
 
+
+
+
+-- -----------------------------------------------------------------------------
+-- DO NOT CHANGE ANYTHING BELOW - UNLESS YOU KNOW WHAT YOU ARE DOING :)
+-- -----------------------------------------------------------------------------
+
+-- Called when any player (AI or human) takes his turn.
 function OnPlayerTurnActivated( player, bIsFirstTime )
 
     -- Is this the start turn?
@@ -57,12 +67,23 @@ function OnPlayerTurnActivated( player, bIsFirstTime )
             
             local lastPlot = unitPlot;
             
+            -- Go through the list of units
             for unitName, amount in pairs(unitsToAdd) do
                 
+                -- This is the internal index of the unit
                 local unitIndex = GameInfo.Units[unitName].Index;
             
+                -- Do we want to add this unit?
                 if amount > 0 then
+                
                     for i = 1, amount do
+                    
+                        -- Go through plots nearby, and check where we could put the unit.
+                        -- We also store the last plot we put a unit so we can avoid putting
+                        -- a second one there.
+                        --
+                        -- This could be enhanced with a stack of plots 
+                        --
                         for direction = 1, DirectionTypes.NUM_DIRECTION_TYPES - 1, 1 do
                             adjacentPlot = Map.GetAdjacentPlot(lastPlot:GetX(), lastPlot:GetY(), direction);
                             if (adjacentPlot ~= nil) and not (adjacentPlot:IsWater() or adjacentPlot:IsImpassable()) then
