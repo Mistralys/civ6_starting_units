@@ -85,7 +85,8 @@ function OnPlayerTurnActivated( player, bIsFirstTime )
                         -- We also store the last plot we put a unit so we can avoid putting
                         -- a second one there.
                         --
-                        -- This could be enhanced with a stack of plots 
+                        -- This could be enhanced with a stack of plots built in advance
+                        -- using an outward spiral for the amount of units to add.
                         --
                         for direction = 1, DirectionTypes.NUM_DIRECTION_TYPES - 1, 1 do
                             adjacentPlot = Map.GetAdjacentPlot(lastPlot:GetX(), lastPlot:GetY(), direction);
