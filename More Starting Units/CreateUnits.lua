@@ -38,6 +38,9 @@ local unitsToAdd =
 -- DO NOT CHANGE ANYTHING BELOW - UNLESS YOU KNOW WHAT YOU ARE DOING :)
 -- -----------------------------------------------------------------------------
 
+-- Largely inspired by Mynex's original mod on Nexusmods:
+-- https://www.nexusmods.com/civilisationvi/mods/9
+
 -- Called when any player (AI or human) takes his turn.
 function OnPlayerTurnActivated( player, bIsFirstTime )
 
