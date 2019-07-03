@@ -1,0 +1,81 @@
+[h1]What does it do?[/h1]
+
+By default, the mod adds [b]a builder and a scout[/b] on top of the default starting units. However, it is meant to be easily customized so you can choose which units you want to have added, and how many of each.
+
+[b]Note: The AI's starting units are not affected.[/b]
+
+Works with all game versions.
+
+[h1]How to change the units[/h1]
+
+You have to edit the [b]CreateUnits.lua[/b] file in the mod folder, with any text editor. 
+
+You will find this file in your Steam library at this location:
+
+steamapps\workshop\content\289070\1788026549\CreateUnits.lua
+
+There is a list of units at the start of the file, which looks something like this:
+
+local unitsToAdd = 
+{
+    ["UNIT_SCOUT"] = 1,
+    ["UNIT_SETTLER"] = 0,
+    ["UNIT_BUILDER"] = 1,
+    ["UNIT_SLINGER"] = 0,
+    ["UNIT_WARRIOR"] = 0,
+    ["UNIT_RANGER"] = 0
+}
+
+On the left is the internal name of the unit, and on the right the amount of that type of unit to add. If set to 0, no units will be added. I already added a list of common units you may want to add, otherwise you will have to look up the unit names.
+
+To illustrate, if you wanted to add 2 settlers and 2 warriors, you would change it like this:
+
+local unitsToAdd = 
+{
+    ["UNIT_SCOUT"] = 0,
+    ["UNIT_SETTLER"] = 2,
+    ["UNIT_BUILDER"] = 0,
+    ["UNIT_SLINGER"] = 0,
+    ["UNIT_WARRIOR"] = 2,
+    ["UNIT_RANGER"] = 0
+}
+
+[b]Tip: You only have to restart a map for changes to the file to take effect.[/b]
+
+[b]NOTE:[/b] Each time the mod is updated, your changes will be reset. Sadly there is currently no way around this - you will have to edit the file again before your next game.
+
+[h1]Using DLC specific units[/h1]
+
+As long as you have the matching expansion installed, you can use any of the specific units. For example, the Cree's Okihtcitaw from the Rise & Fall expansion (included as example in the CreateUnits.lua):
+
+["UNIT_CREE_OKIHTCITAW"] = 1
+
+[h1]Don't go too wild![/h1]
+
+The mod tries to place the units where there are empty plots next to your initial settler. If there is not enough space, some units will be stacked on top of each other. In this case, you will have to move those to empty slots manually, as available. If you cannot move them all to empty plots, you will have to disband some, otherwise you will not be able to end the turn.
+
+[b]Units you should not use, because they will not work correctly:[/b]
+
+- Great People
+- Any air units
+- Any sea units
+- Nukes
+
+
+[h1]Compatibility[/h1]
+
+This should not create conflicts with any other mods, it is entirely self-contained.
+
+The Maori civilization is not supported: no units will be added.
+
+[h1]Credits[/h1]
+
+Largely inspired by Mynex's mod on Nexusmods, called "Mynex's more starting units":
+
+https://www.nexusmods.com/civilisationvi/mods/9
+
+[h1]Github project[/h1]
+
+Do you have something to contribute? Bug fixes, enhancements, etc? I am open to pull requests.
+
+https://github.com/Mistralys/civ6_starting_units
